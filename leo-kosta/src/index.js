@@ -21,10 +21,10 @@ let allBooks = [...fantasy, ...history, ...horror, ...romance, ...scifi]
 ReactDOM.render(
   <React.StrictMode>
 
-    < NavBar />
+    {/* < NavBar /> */}
 
     <WarningSign text="404" />
-    <MyBadge color="danger" text="This is a badge" />
+    <MyBadge color="primary" text="Yeah" />
     <BookList books={allBooks} />
     {/* <SingleBook books={books[0]}/> */}
 

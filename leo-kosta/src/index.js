@@ -16,15 +16,18 @@ import BookList from "./components/BookList";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 
+let allBooks = [...fantasy, ...history, ...horror, ...romance, ...scifi]
+
 ReactDOM.render(
   <React.StrictMode>
-    < NavBar/>
-    
+
+    {/* < NavBar /> */}
+
     <WarningSign text="404" />
-  <MyBadge color="danger" text="This is a badge" />
-  <BookList books={history} />
-  {/* <SingleBook books={books[0]}/> */}
-    
+    <MyBadge color="primary" text="Yeah" />
+    <BookList books={allBooks} />
+    {/* <SingleBook books={books[0]}/> */}
+
   </React.StrictMode>,
   document.getElementById('root')
 );

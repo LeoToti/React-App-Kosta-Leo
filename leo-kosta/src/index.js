@@ -6,13 +6,24 @@ import reportWebVitals from './reportWebVitals';
 import MyBadge from "./components/MyBadge"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WarningSign from './components/WarningSign'
+import SingleBook from './components/SingleBook'
+import fantasy from './data/fantasy.json'
+import history from './data/history.json'
+import horror from './data/horror.json'
+import romance from './data/romance.json'
+import scifi from './data/scifi.json'
+import BookList from "./components/BookList";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from './components/NavBar';
 
 ReactDOM.render(
   <React.StrictMode>
+    < NavBar/>
     
     <WarningSign text="404" />
   <MyBadge color="danger" text="This is a badge" />
+  <BookList books={history} />
+  {/* <SingleBook books={books[0]}/> */}
     
   </React.StrictMode>,
   document.getElementById('root')

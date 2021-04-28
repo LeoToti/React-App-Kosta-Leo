@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import MyBadge from "./components/MyBadge"
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import WarningSign from './components/WarningSign'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <MyBadge color="danger" text="This is a badge" />
+    
+    <WarningSign text="404" />
+  <MyBadge color="danger" text="This is a badge" />
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

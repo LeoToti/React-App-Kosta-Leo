@@ -16,22 +16,17 @@ import BookList from "./components/BookList";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 
+
 ReactDOM.render(
   <React.StrictMode>
-<<<<<<< Updated upstream
-    < NavBar/>
-    
-    <WarningSign text="404" />
-  <MyBadge color="danger" text="This is a badge" />
-  <BookList books={history} />
-  {/* <SingleBook books={books[0]}/> */}
-    
-=======
+
+    < NavBar />
 
     <WarningSign text="404" />
     <MyBadge color="danger" text="This is a badge" />
+    <BookList books={history} />
+    {/* <SingleBook books={books[0]}/> */}
 
->>>>>>> Stashed changes
   </React.StrictMode>,
   document.getElementById('root')
 );

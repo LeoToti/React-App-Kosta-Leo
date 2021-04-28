@@ -22,7 +22,6 @@ const NavBar = () => (
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" id="search" onChange="handleChange"/>
-      <Button variant="outline-success">Search</Button>
     </Form>
   </Navbar.Collapse>
 </Navbar>

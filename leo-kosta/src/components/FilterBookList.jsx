@@ -28,15 +28,15 @@ class FilterBookList extends React.Component {
     handleChange = (e) => {
         // e.target.value
         // e.target.id
-        let id = e.target.id
-        console.log('the field I need to change in the reservation object is', id)
+        let search = e.target.value
+        console.log('the value of the search field is ', search)
         // id can be "name", "phone", "smoking"
-        this.setState({
-            book: {
-                ...this.state.book,
-                [id]: id = e.target.value
-            }
-        })
+        // this.setState({
+        //     book: {
+        //         ...this.state.book,
+        //         [id]: id = e.target.value
+        //     }
+        // })
     }
 
 }

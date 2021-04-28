@@ -16,6 +16,7 @@ import BookList from "./components/BookList";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 
+let allBooks = [...fantasy, ...history, ...horror, ...romance, ...scifi]
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,7 +25,7 @@ ReactDOM.render(
 
     <WarningSign text="404" />
     <MyBadge color="danger" text="This is a badge" />
-    <BookList books={history} />
+    <BookList books={allBooks} />
     {/* <SingleBook books={books[0]}/> */}
 
   </React.StrictMode>,

@@ -18,6 +18,7 @@ import NavBar from './components/NavBar';
 
 ReactDOM.render(
   <React.StrictMode>
+<<<<<<< Updated upstream
     < NavBar/>
     
     <WarningSign text="404" />
@@ -25,6 +26,12 @@ ReactDOM.render(
   <BookList books={history} />
   {/* <SingleBook books={books[0]}/> */}
     
+=======
+
+    <WarningSign text="404" />
+    <MyBadge color="danger" text="This is a badge" />
+
+>>>>>>> Stashed changes
   </React.StrictMode>,
   document.getElementById('root')
 );

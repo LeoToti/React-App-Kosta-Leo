@@ -24,7 +24,7 @@ ReactDOM.render(
     {/* < NavBar /> */}
 
     <WarningSign text="404" />
-    <MyBadge color="primary" text="Yeah" />
+    <MyBadge color="danger" text="Check out!" />
     <BookList books={allBooks} />
     {/* <SingleBook books={books[0]}/> */}
 

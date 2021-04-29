@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
-import books from "../data/fantasy.json";
 import SingleBook from "./SingleBook";
 import {Navbar, Nav, Form, Button, FormControl} from 'react-bootstrap'
 

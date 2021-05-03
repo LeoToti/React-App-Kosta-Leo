@@ -1,16 +1,18 @@
 import React from "react";
-import { ListGroup, Button } from "react-bootstrap";
+import { ListGroup, Button, Spinner } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CommentsList from "./CommentsList";
 
 class CommentArea extends React.Component {
   state = {
     singleBookComments: [],
+    isLoading: false,
   };
 
   componentDidUpdate = async (prevProps, prevState) => {
     if (prevProps !== this.props) {
       try {
+        this.setState({ isLoading: true });
         let response = await fetch(
           "https://striveschool-api.herokuapp.com/api/comments/" +
             this.props.bookId,
@@ -29,6 +31,7 @@ class CommentArea extends React.Component {
         if (response.ok) {
           let data = await response.json();
           this.setState({ singleBookComments: data });
+          this.setState({ isLoading: false });
         } else {
           alert("error11");
         }
@@ -39,12 +42,18 @@ class CommentArea extends React.Component {
   };
   render() {
     return (
-      <>
-        <CommentsList
-          bookId={this.props.bookId}
-          bookComments={this.state.singleBookComments}
-        />
-      </>
+      <div className="d-fixed">
+        {this.state.isLoading && (
+          <Spinner className="mx-auto" animation="border" variant="dark" />
+        )}
+
+        {!this.state.isLoading && (
+          <CommentsList
+            bookId={this.props.bookId}
+            bookComments={this.state.singleBookComments}
+          />
+        )}
+      </div>
     );
   }
 }

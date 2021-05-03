@@ -81,7 +81,10 @@ class BookList extends React.Component {
                   ))}
               </div>
             </div>
-            <div className="col-2">
+            <div
+              className="col-2 "
+              style={{ top: "5rem", right: "1rem", position: "fixed" }}
+            >
               <div className="row">
                 {this.state.selectedBookId && (
                   <CommentArea bookId={this.state.selectedBookId} />

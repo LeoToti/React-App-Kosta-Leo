@@ -15,16 +15,18 @@ import scifi from './data/scifi.json'
 import BookList from "./components/BookList";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
+import LoadComments from './components/LoadComments';
 
 let allBooks = [...fantasy, ...history, ...horror, ...romance, ...scifi]
-
+let commentsArray = <LoadComments />
+console.log(commentsArray)
 ReactDOM.render(
   <React.StrictMode>
 
     {/* < NavBar /> */}
 
-    <WarningSign text="404" />
-    <MyBadge color="danger" text="Check out!" />
+    {/* <WarningSign text="404" />
+    <MyBadge color="danger" text="Check out!" /> */}
     <BookList books={allBooks} />
     {/* <SingleBook books={books[0]}/> */}
 

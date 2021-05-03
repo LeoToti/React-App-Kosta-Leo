@@ -1,49 +1,51 @@
-import React from "react"
-import {ListGroup,Button} from "react-bootstrap"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import { ListGroup, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import CommentsList from "./CommentsList";
 
 class CommentArea extends React.Component {
+  state = {
+    singleBookComments: [],
+  };
 
-    state = {comments:[],
-             singeBookComments:[]   }
-
-    componentDidMount = async () => {
-        try {
-            let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/",{
+  componentDidUpdate = async (prevProps, prevState) => {
+    if (prevProps !== this.props) {
+      try {
+        let response = await fetch(
+          "https://striveschool-api.herokuapp.com/api/comments/" +
+            this.props.bookId,
+          {
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMWY1MWIxZjBmYjAwMTVkOTE3OTEiLCJpYXQiOjE2MTkwMDkzNjEsImV4cCI6MTYyMDIxODk2MX0.ImlVBcPHsjaDy0c6wfO0Kybjg-u2nPcdNJtgMQlreVc"
-              }
-            }
-            )
-            if(response.ok) {
-                let data = await response.json()             
-                this.setState({comments:data})
-                console.log(this.state.comments)
-                console.log(this.state.comments.filter(comment => comment.elementId === this.props.bookId))
-                console.log(this.props.bookId)
-                console.log(this.state.comments[0].elementId)
-                let BookComments = this.state.comments.filter(comment => comment.elementId === this.props.bookId)
-                this.setState({singleBookComments:BookComments})
-            }else {
-                alert("error11")
-            }
-
-        } catch (error) {
-            alert(error)
+              "Content-Type": "application/json",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMWY1MWIxZjBmYjAwMTVkOTE3OTEiLCJpYXQiOjE2MTkwMDkzNjEsImV4cCI6MTYyMDIxODk2MX0.ImlVBcPHsjaDy0c6wfO0Kybjg-u2nPcdNJtgMQlreVc",
+            },
+          }
+        );
+        console.log(
+          "https://striveschool-api.herokuapp.com/api/comments/" +
+            this.props.bookId
+        );
+        if (response.ok) {
+          let data = await response.json();
+          this.setState({ singleBookComments: data });
+        } else {
+          alert("error11");
         }
+      } catch (error) {
+        alert(error);
+      }
     }
-
-render () {
-
+  };
+  render() {
     return (
-        <>
-<Button variant="primary">Add Comment!</Button>
- <CommentsList bookId={this.props.bookId} bookComments={this.state.singeBookComments} />
-</>
-
-)
+      <>
+        <CommentsList
+          bookId={this.props.bookId}
+          bookComments={this.state.singleBookComments}
+        />
+      </>
+    );
+  }
 }
-}
-export default CommentArea
+export default CommentArea;

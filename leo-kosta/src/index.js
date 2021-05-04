@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
-import MyBadge from "./components/MyBadge"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-import WarningSign from './components/WarningSign'
-import SingleBook from './components/SingleBook'
 import fantasy from './data/fantasy.json'
 import history from './data/history.json'
 import horror from './data/horror.json'
@@ -14,12 +12,9 @@ import romance from './data/romance.json'
 import scifi from './data/scifi.json'
 import BookList from "./components/BookList";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from './components/NavBar';
-import LoadComments from './components/LoadComments';
+
 
 let allBooks = [...fantasy, ...history, ...horror, ...romance, ...scifi]
-let commentsArray = <LoadComments />
-console.log(commentsArray)
 ReactDOM.render(
   <React.StrictMode>
 

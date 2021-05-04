@@ -1,9 +1,21 @@
-import {Badge} from "react-bootstrap"
+import { Badge } from "react-bootstrap";
 
 const MyBadge = (props) => (
-    <div>
-        <Badge variant={props.color}>{props.text}</Badge>{' '}
-   </div>
-)
+  <Badge
+    variant={
+      props.book.category === "fantasy"
+        ? "info"
+        : props.book.category === "history"
+        ? "warning"
+        : props.book.category === "romance"
+        ? "light"
+        : props.book.category === "horror"
+        ? "dark"
+        : "scifi"
+    }
+  >
+    {props.book.category}
+  </Badge>
+);
 
-export default MyBadge
+export default MyBadge;

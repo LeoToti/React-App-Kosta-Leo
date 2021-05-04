@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroup, Button, Spinner } from "react-bootstrap";
+import { Card, Button, Spinner } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CommentsList from "./CommentsList";
 
@@ -15,7 +15,7 @@ class CommentArea extends React.Component {
         this.setState({ isLoading: true });
         let response = await fetch(
           "https://striveschool-api.herokuapp.com/api/comments/" +
-            this.props.bookId,
+            this.props.book.asin,
           {
             headers: {
               "Content-Type": "application/json",
@@ -26,7 +26,7 @@ class CommentArea extends React.Component {
         );
         console.log(
           "https://striveschool-api.herokuapp.com/api/comments/" +
-            this.props.bookId
+            this.props.book.asin
         );
         if (response.ok) {
           let data = await response.json();
@@ -42,16 +42,29 @@ class CommentArea extends React.Component {
   };
   render() {
     return (
-      <div className="d-fixed">
+      <div className="d-flex">
         {this.state.isLoading && (
-          <Spinner className="mx-auto" animation="border" variant="dark" />
+          <Spinner
+            animation="border"
+            style={{ position: "absolute", top: "0rem", right: "45%" }}
+            variant="primary"
+          />
         )}
 
         {!this.state.isLoading && (
-          <CommentsList
-            bookId={this.props.bookId}
-            bookComments={this.state.singleBookComments}
-          />
+          <Card>
+            <Card.Img variant="top" src={this.props.book.img} />
+            <Card.Body>
+              <Card.Title>{this.props.book.title}</Card.Title>
+              <Card.Text style={{ overflowY: "scroll", height: "15rem" }}>
+                <CommentsList
+                  bookId={this.props.book.asin}
+                  bookComments={this.state.singleBookComments}
+                />
+              </Card.Text>
+              <Button variant="primary">Add Comment!</Button>
+            </Card.Body>
+          </Card>
         )}
       </div>
     );
